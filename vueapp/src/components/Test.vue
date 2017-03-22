@@ -1,7 +1,9 @@
 <template> 
     <div class="test">
+        <input type="text" v-model="title" >
         <h1>{{title}}</h1>
         <p>{{user.first_name}}</p>
+        <button v-on:click = "hello('pulkit')"> say greeting</button>
 
     </div>
 
@@ -24,6 +26,13 @@
          }
 
         
+
+     },
+
+     methods:{
+        hello: function(who){
+            alert("hello" + who);
+        }
 
      }
 
