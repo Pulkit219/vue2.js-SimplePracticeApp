@@ -43,6 +43,6 @@
 
 
 
-<stytle scoped>
+<style scoped>
 
 </style>

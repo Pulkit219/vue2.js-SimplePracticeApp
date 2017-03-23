@@ -34,28 +34,7 @@
 
              newUser:{},
            users:[
-               {
-                   name:'John Doe',
-               email:'exmple@gmail.com',
-               contacted:false
-
-               },
-
-                {
-                   name:'Pulkit Bansal',
-               email:'exmple@gmail.com',
-               contacted:false
-
-               },
-
-
-                {
-                   name:'John smith',
-               email:'exmple@gmail.com',
-               contacted:false
-
-               }
-
+              
            ]
 
 
@@ -83,6 +62,12 @@
            this.users.splice(this.users.indexOf(user),1);
        }
 
+     },
+     created: function(){
+
+         this.$http.get('https://jsonplaceholder.typicode.com/users').then(function(response){
+              this.users = response.data;
+         })
      }
 
    }
