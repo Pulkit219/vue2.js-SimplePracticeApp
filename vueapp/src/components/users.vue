@@ -5,7 +5,7 @@
     
        <input type="text" v-model="newUser.name" placeholder="enter a name">
        <br/>
-       <input type="text" v-model="newUser.emailname" placeholder="enter an email">
+       <input type="text" v-model="newUser.email" placeholder="enter an email">
        <br/>
        <input type="submit" value="submit">
 
@@ -13,7 +13,13 @@
 
        <ul>
 
-       <li v-for="user in users">{{user.name}} : {{user.email}}</li>
+       <li v-for="user in users">
+       <input type="checkbox" class="toggle" v-model="user.contacted">
+       <span :class="{contacted: user.conatacted}">
+       {{user.name}} : {{user.email}}
+        </span>
+       
+       </li>
        </ul>
     </div>
 
@@ -62,7 +68,13 @@
 
      methods:{
        addUser: function(e){
-           console.log("add");
+         this.users.push(
+             {
+                 name:this.newUser.name,
+                 email:this.newUser.email,
+                 conatacted:false
+             }
+         );
            e.preventDefault();
        }
 
